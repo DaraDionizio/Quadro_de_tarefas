@@ -30,7 +30,7 @@ const drop = ({ target }) => {
 
 };
 
-const createCardard = ({ target }) => {
+const createCard = ({ target }) => {
     const card = document.createElement("section");
 
     card.className = "card";
