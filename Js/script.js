@@ -62,6 +62,6 @@ columns.forEach((column) => {
     column.addEventListener("dblclick", createCard);
 });
 
-// cards.forEach((card) => {
-//     card.addEventListener("dragstart", dragStart);
-// });
+cards.forEach((card) => {
+    card.addEventListener("dragstart", dragStart);
+});
