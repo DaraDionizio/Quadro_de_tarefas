@@ -31,15 +31,24 @@ const drop = ({ target }) => {
 };
 
 const createCard = ({ target }) => {
+    if(!target.classList.contains("column__cards")) return;
+
     const card = document.createElement("section");
 
     card.className = "card";
     card.draggable = "true";
+    card.contentEditable = "true";
+
+    card.addEventListener("focusout", () => {
+        card.contentEditable = "false";
+
+        if(!card.textContent) card.remove();
+    });
 
     card.addEventListener("dragstart", dragStart);
 
     target.append(card);
-
+    card.focus();
 };
 
 // cards.forEach(() => {})
@@ -50,9 +59,9 @@ columns.forEach((column) => {
     column.addEventListener("dragenter", dragEnter);
     column.addEventListener("dragleave", dragLeave);
     column.addEventListener("drop", drop);
-    column.addEventListener("dbclick", createCard);
+    column.addEventListener("dblclick", createCard);
 });
 
-cards.forEach((card) => {
-    card.addEventListener("dragstart", dragStart);
-});
+// cards.forEach((card) => {
+//     card.addEventListener("dragstart", dragStart);
+// });
